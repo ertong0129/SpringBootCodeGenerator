@@ -48,7 +48,7 @@ const vm = new Vue({
 
 				isPackageType: true,
 				isSwagger: false,
-				isAutoImport: false,
+				isAutoImport: true,
 				isWithPackage: false,
 				isComment: true,
 				isLombok: true,

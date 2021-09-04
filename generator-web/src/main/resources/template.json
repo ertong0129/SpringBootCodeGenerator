@@ -229,5 +229,62 @@
         "description": "rr-service"
       }
     ]
+  },
+
+  {
+    "group": "jlscrm",
+    "showFlag": true,
+    "templates": [
+      {
+        "id": "98",
+        "name": "mybatis",
+        "description": "mybatis"
+      },
+      {
+        "id": "99",
+        "name": "dao",
+        "description": "dao"
+      },
+      {
+        "id": "100",
+        "name": "do",
+        "description": "do"
+      },
+      {
+        "id": "101",
+        "name": "dto",
+        "description": "dto"
+      },
+      {
+        "id": "102",
+        "name": "query",
+        "description": "query"
+      },
+      {
+        "id": "103",
+        "name": "manager",
+        "description": "manager"
+      },
+      {
+        "id": "103",
+        "name": "managerImpl",
+        "description": "managerImpl"
+      },
+      {
+        "id": "104",
+        "name": "service",
+        "description": "service"
+      },
+      {
+        "id": "105",
+        "name": "serviceImpl",
+        "description": "serviceImpl"
+      },
+      {
+        "id": "106",
+        "name": "convert",
+        "description": "convert"
+      }
+    ]
   }
 ]

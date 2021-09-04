@@ -110,7 +110,7 @@
             <!--templates area-->
             <el-form ref="form" :inline="true" :model="formData"  label-width="100px" size="mini">
                 <div  v-for="(item, index) in templates" :key="index">
-                    <el-button-group >
+                    <el-button-group v-if="item.showFlag">
                         <el-button type="primary" plain disabled>{{item.group}}</el-button>
                         <span v-for="(childItem, index) in item.templates" :key="index">
                             <el-button @click="setOutputModel">{{childItem.name}}</el-button>

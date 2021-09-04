@@ -209,6 +209,7 @@ public class TableParseUtil {
                     // field class
                     // int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
                     String fieldClass = Object.class.getSimpleName();
+                    String jdbcType = "VARCHAR";
                     //2018-9-16 zhengk 补充char/clob/blob/json等类型，如果类型未知，默认为String
                     //2018-11-22 lshz0088 处理字段类型的时候，不严谨columnLine.contains(" int") 类似这种的，可在前后适当加一些空格之类的加以区分，否则当我的字段包含这些字符的时候，产生类型判断问题。
                     //2020-05-03 MOSHOW.K.ZHENG 优化对所有类型的处理
@@ -216,16 +217,20 @@ public class TableParseUtil {
                     if (columnLine.contains(" tinyint")) {
                         //20191115 MOSHOW.K.ZHENG 支持对tinyint的特殊处理
                         fieldClass = MapUtil.getString(paramInfo.getOptions(),"tinyintTransType");;
+                        jdbcType = "TINYINT";
                     } else if (columnLine.contains(" int") || columnLine.contains(" smallint")) {
                         fieldClass = (isPackageType)?Integer.class.getSimpleName():"int";
+                        jdbcType = "INTEGER";
                     } else if (columnLine.contains(" bigint")) {
                         fieldClass = (isPackageType)?Long.class.getSimpleName():"long";
+                        jdbcType = "BIGINT";
                     } else if (columnLine.contains(" float")) {
                         fieldClass = (isPackageType)?Float.class.getSimpleName():"float";
                     } else if (columnLine.contains(" double")) {
                         fieldClass = (isPackageType)?Double.class.getSimpleName():"double";
                     } else if (columnLine.contains(" time") || columnLine.contains(" date") || columnLine.contains(" datetime") || columnLine.contains(" timestamp")) {
                         fieldClass =  MapUtil.getString(paramInfo.getOptions(),"timeTransType");
+                        jdbcType = "TIMESTAMP";
                     } else if (columnLine.contains(" varchar") || columnLine.contains(" text") || columnLine.contains(" char")
                             || columnLine.contains(" clob") || columnLine.contains(" blob") || columnLine.contains(" json")) {
                         fieldClass = String.class.getSimpleName();
@@ -308,6 +313,7 @@ public class TableParseUtil {
                     fieldInfo.setFieldClass(fieldClass);
                     fieldInfo.setSwaggerClass(swaggerClass);
                     fieldInfo.setFieldComment(fieldComment);
+                    fieldInfo.setJdbcType(jdbcType);
 
                     fieldList.add(fieldInfo);
                 }
