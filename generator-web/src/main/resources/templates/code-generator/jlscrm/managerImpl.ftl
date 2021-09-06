@@ -36,7 +36,10 @@ public class ${classInfo.className}ManagerImpl implements ${classInfo.className}
 
     @Override
     public int insertSelective(${classInfo.className}DTO record) {
-        return ${classInfo.lcHeadClassName}DAO.insertSelective(${classInfo.className}Convert.dto2do(record));
+        ${classInfo.className}DO ${classInfo.lcHeadClassName}DO = ${classInfo.className}Convert.dto2do(record)
+        int n =  ${classInfo.lcHeadClassName}DAO.insertSelective(${classInfo.lcHeadClassName}DO);
+        record.setId(${classInfo.lcHeadClassName}DO.getId());
+        return n;
     }
 
     @Override

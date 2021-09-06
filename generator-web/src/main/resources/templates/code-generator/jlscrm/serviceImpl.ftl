@@ -6,6 +6,8 @@ import ${packageName}.domain.query.${classInfo.className}Query;
 import ${packageName}.manager.${classInfo.className}Manager;
 import ${packageName}.service.${classInfo.className}Service;
 
+import com.aifocus.base.common.result.ErrorEnum;
+import com.aifocus.base.common.result.Result;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 </#if>

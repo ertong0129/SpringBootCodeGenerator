@@ -35,7 +35,7 @@
         WHERE id = ${r"#{id,jdbcType=BIGINT}"}
     </delete>
 
-    <insert id="insertSelective" parameterType="${packageName}.dao.DO.${classInfo.className}DO">
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="${packageName}.dao.DO.${classInfo.className}DO" useGeneratedKeys="true">
         INSERT INTO ${classInfo.tableName}
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>

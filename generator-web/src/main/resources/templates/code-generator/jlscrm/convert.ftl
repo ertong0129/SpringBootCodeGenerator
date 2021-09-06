@@ -66,4 +66,5 @@ public class ${classInfo.className}Convert {
 
         return ${classInfo.lcHeadClassName}DOList;
     }
+
 }
