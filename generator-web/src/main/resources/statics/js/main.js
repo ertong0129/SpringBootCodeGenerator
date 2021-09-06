@@ -54,7 +54,7 @@ const vm = new Vue({
 				isLombok: true,
 
 				ignorePrefix:"sys_",
-				tinyintTransType: "int",
+				tinyintTransType: "Integer",
 				nameCaseType: "CamelCase",
 				timeTransType: "Date"
 			}

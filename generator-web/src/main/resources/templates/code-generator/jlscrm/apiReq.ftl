@@ -1,7 +1,7 @@
-package ${packageName}.service;
+package ${packageName}.req;
 
 <#if isAutoImport?exists && isAutoImport==true>
-import com.aifocus.base.common.result.Result;
+import lombok.Data;
 </#if>
 
 /**
@@ -9,6 +9,7 @@ import com.aifocus.base.common.result.Result;
 * @author ${authorName}
 * @date ${.now?string('yyyy-MM-dd')}
 */
-public interface ${classInfo.className}Service {
+@Data
+public class ${classInfo.className}Req extends BaseMQDTO {
 
 }

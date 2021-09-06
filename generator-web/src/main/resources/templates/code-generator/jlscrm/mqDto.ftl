@@ -1,7 +1,8 @@
-package ${packageName}.service;
+package ${packageName}.domain.dto.mq;
 
 <#if isAutoImport?exists && isAutoImport==true>
-import com.aifocus.base.common.result.Result;
+import lombok.Data;
+import ${packageName}.mq.BaseMQDTO;
 </#if>
 
 /**
@@ -9,6 +10,7 @@ import com.aifocus.base.common.result.Result;
 * @author ${authorName}
 * @date ${.now?string('yyyy-MM-dd')}
 */
-public interface ${classInfo.className}Service {
+@Data
+public class ${classInfo.className}MQDTO extends BaseMQDTO {
 
 }
