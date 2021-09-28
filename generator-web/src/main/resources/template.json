@@ -306,5 +306,67 @@
         "description": "apiReq"
       }
     ]
+  },
+
+  {
+    "group": "wxpartner",
+    "showFlag": true,
+    "templates": [
+      {
+        "id": "111",
+        "name": "mybatis",
+        "description": "mybatis"
+      },
+      {
+        "id": "112",
+        "name": "dao",
+        "description": "dao"
+      },
+      {
+        "id": "113",
+        "name": "po",
+        "description": "po"
+      },
+      {
+        "id": "114",
+        "name": "dto",
+        "description": "dto"
+      },
+      {
+        "id": "115",
+        "name": "query",
+        "description": "query"
+      },
+      {
+        "id": "116",
+        "name": "manager",
+        "description": "manager"
+      },
+      {
+        "id": "117",
+        "name": "managerImpl",
+        "description": "managerImpl"
+      },
+      {
+        "id": "118",
+        "name": "service",
+        "description": "service"
+      },
+      {
+        "id": "119",
+        "name": "serviceImpl",
+        "description": "serviceImpl"
+      },
+      {
+        "id": "120",
+        "name": "convert",
+        "description": "convert"
+      },
+      {
+        "id": "121",
+        "name": "controller",
+        "description": "controller"
+      }
+    ]
   }
 ]

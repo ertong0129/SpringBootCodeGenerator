@@ -1,15 +1,14 @@
-package ${packageName}.manager.impl;
+package ${packageName}.core.manager.impl;
 
 <#if isAutoImport?exists && isAutoImport==true>
-import ${packageName}.domain.dto.${classInfo.className}DTO;
-import ${packageName}.domain.query.${classInfo.className}Query;
-import ${packageName}.dao.${classInfo.className}DAO;
-import ${packageName}.dao.DO.${classInfo.className}DO;
-import ${packageName}.convert.${classInfo.className}Convert;
-import ${packageName}.manager.${classInfo.className}Manager;
+import ${packageName}.core.dao.query.${classInfo.className}Query;
+import ${packageName}.core.dao.${classInfo.className}DAO;
+import ${packageName}.core.dao.po.${classInfo.className}PO;
+import ${packageName}.core.dao.convert.${classInfo.className}Convert;
+import ${packageName}.core.manager.${classInfo.className}Manager;
 
 import com.aifocus.base.common.result.ErrorEnum;
-import com.webuy.jlscrm.common.exception.JlscrmException;
+import com.webuy.wxpartner.common.exception.WXPartnerException;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
@@ -29,23 +28,23 @@ public class ${classInfo.className}ManagerImpl implements ${classInfo.className}
     @Override
     public int deleteByPrimaryKey(Long id) {
         if (id == null) {
-            throw new JlscrmException(ErrorEnum.PARAMS_ERROR);
+            throw new WXPartnerException(ErrorEnum.PARAMS_ERROR);
         }
         return ${classInfo.lcHeadClassName}DAO.deleteByPrimaryKey(id);
     }
 
     @Override
     public int insertSelective(${classInfo.className}DTO record) {
-        ${classInfo.className}DO ${classInfo.lcHeadClassName}DO = ${classInfo.className}Convert.dto2do(record);
-        int n =  ${classInfo.lcHeadClassName}DAO.insertSelective(${classInfo.lcHeadClassName}DO);
-        record.setId(${classInfo.lcHeadClassName}DO.getId());
+        ${classInfo.className}PO ${classInfo.lcHeadClassName}PO = ${classInfo.className}Convert.dto2do(record);
+        int n =  ${classInfo.lcHeadClassName}DAO.insertSelective(${classInfo.lcHeadClassName}PO);
+        record.setId(${classInfo.lcHeadClassName}PO.getId());
         return n;
     }
 
     @Override
     public ${classInfo.className}DTO selectByPrimaryKey(Long id) {
         if (id == null) {
-            throw new JlscrmException(ErrorEnum.PARAMS_ERROR);
+            throw new WXPartnerException(ErrorEnum.PARAMS_ERROR);
         }
         return ${classInfo.className}Convert.do2dto(${classInfo.lcHeadClassName}DAO.selectByPrimaryKey(id));
     }
@@ -53,7 +52,7 @@ public class ${classInfo.className}ManagerImpl implements ${classInfo.className}
     @Override
     public int updateByPrimaryKeySelective(${classInfo.className}DTO record) {
         if (record.getId() == null) {
-            throw new JlscrmException(ErrorEnum.PARAMS_ERROR);
+            throw new WXPartnerException(ErrorEnum.PARAMS_ERROR);
         }
         return ${classInfo.lcHeadClassName}DAO.updateByPrimaryKeySelective(${classInfo.className}Convert.dto2do(record));
     }
