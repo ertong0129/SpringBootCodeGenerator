@@ -23,9 +23,25 @@
     <sql id="Base_Sql">
         <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
             <#list classInfo.fieldList as fieldItem >
+                <#switch fieldItem.fieldName>
+                    <#case "isDelete">
+        <if test="isDelete != null">
+            AND is_delete = ${r"#{"}${fieldItem.fieldName},jdbcType=${fieldItem.jdbcType}${r"}"}
+        ${r"</if>"}
+        <if test="isDelete == null">
+            AND is_delete = 0
+        ${r"</if>"}
+                        <#break>
+                    <#case "attributeCc">
+                    <#case "attributes">
+                    <#case "gmtCreate">
+                    <#case "gmtModify">
+                        <#break>
+                    <#default>
         <if test="${fieldItem.fieldName} != null">
             AND ${fieldItem.columnName} = ${r"#{"}${fieldItem.fieldName},jdbcType=${fieldItem.jdbcType}${r"}"}
         ${r"</if>"}
+                </#switch>
             </#list>
         </#if>
     </sql>
@@ -65,11 +81,16 @@
         UPDATE ${classInfo.tableName}
         <set>
             <#list classInfo.fieldList as fieldItem >
-                <#if fieldItem.columnName != "id">
+                <#switch fieldItem.fieldName>
+                    <#case "id">
+                    <#case "gmtCreate">
+                    <#case "gmtModify">
+                        <#break>
+                    <#default>
             <if test="${fieldItem.fieldName} != null">
                 ${fieldItem.columnName} = ${r"#{"}${fieldItem.fieldName},jdbcType=${fieldItem.jdbcType}${r"}"}<#if fieldItem_has_next>,</#if>
             ${r"</if>"}
-                </#if>
+                </#switch>
             </#list>
         </set>
         WHERE id = ${r"#{id,jdbcType=BIGINT}"}
