@@ -101,8 +101,8 @@ const vm = new Vue({
 				vm.historicalData.unshift(tableName);
 			}
 			//remove last record , if more than N
-			if(vm.historicalData.length>9){
-				vm.historicalData.splice(9,1);
+			if(vm.historicalData.length>100){
+				vm.historicalData.splice(100,1);
 			}
 			//get and set to session data
 			const valueSession = sessionStorage.getItem(tableName);

@@ -231,8 +231,11 @@ public class TableParseUtil {
                     } else if (columnLine.contains(" time") || columnLine.contains(" date") || columnLine.contains(" datetime") || columnLine.contains(" timestamp")) {
                         fieldClass =  MapUtil.getString(paramInfo.getOptions(),"timeTransType");
                         jdbcType = "TIMESTAMP";
-                    } else if (columnLine.contains(" varchar") || columnLine.contains(" text") || columnLine.contains(" char")
+                    } else if (columnLine.contains(" varchar") || columnLine.contains(" char")
                             || columnLine.contains(" clob") || columnLine.contains(" blob") || columnLine.contains(" json")) {
+                        fieldClass = String.class.getSimpleName();
+                    } else if (columnLine.contains(" text")) {
+                        jdbcType = "LONGVARCHAR";
                         fieldClass = String.class.getSimpleName();
                     } else if (columnLine.contains(" decimal") || columnLine.contains(" number")) {
                         //2018-11-22 lshz0088 建议对number类型增加int，long，BigDecimal的区分判断

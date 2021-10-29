@@ -368,5 +368,52 @@
         "description": "controller"
       }
     ]
+  },
+
+  {
+    "group": "whale-defend-admin",
+    "showFlag": true,
+    "templates": [
+      {
+        "id": "122",
+        "name": "mybatis",
+        "description": "mybatis"
+      },
+      {
+        "id": "123",
+        "name": "dao",
+        "description": "dao"
+      },
+      {
+        "id": "124",
+        "name": "po",
+        "description": "po"
+      },
+      {
+        "id": "125",
+        "name": "dto",
+        "description": "dto"
+      },
+      {
+        "id": "126",
+        "name": "query",
+        "description": "query"
+      },
+      {
+        "id": "127",
+        "name": "manager",
+        "description": "manager"
+      },
+      {
+        "id": "128",
+        "name": "managerImpl",
+        "description": "managerImpl"
+      },
+      {
+        "id": "129",
+        "name": "convert",
+        "description": "convert"
+      }
+    ]
   }
 ]
