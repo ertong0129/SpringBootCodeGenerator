@@ -9,6 +9,8 @@ import com.webuy.whale.defend.admin.manager.${classInfo.className}Manager;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
+import com.webuy.whale.defend.admin.common.exception.ErrorEnum;
+import com.webuy.whale.defend.admin.common.exception.WdAdminException;
 </#if>
 
 /**
@@ -25,7 +27,7 @@ public class ${classInfo.className}ManagerImpl implements ${classInfo.className}
     @Override
     public int deleteByPrimaryKey(Long id) {
         if (id == null) {
-            throw new WXPartnerException(ErrorEnum.PARAMS_ERROR);
+            throw new WdAdminException(ErrorEnum.PARAMS_ERROR);
         }
         return ${classInfo.lcHeadClassName}DAO.deleteByPrimaryKey(id);
     }
@@ -41,7 +43,7 @@ public class ${classInfo.className}ManagerImpl implements ${classInfo.className}
     @Override
     public ${classInfo.className}DTO selectByPrimaryKey(Long id) {
         if (id == null) {
-            throw new WXPartnerException(ErrorEnum.PARAMS_ERROR);
+            throw new WdAdminException(ErrorEnum.PARAMS_ERROR);
         }
         return ${classInfo.className}Convert.do2dto(${classInfo.lcHeadClassName}DAO.selectByPrimaryKey(id));
     }
@@ -49,7 +51,7 @@ public class ${classInfo.className}ManagerImpl implements ${classInfo.className}
     @Override
     public int updateByPrimaryKeySelective(${classInfo.className}DTO record) {
         if (record.getId() == null) {
-            throw new WXPartnerException(ErrorEnum.PARAMS_ERROR);
+            throw new WdAdminException(ErrorEnum.PARAMS_ERROR);
         }
         return ${classInfo.lcHeadClassName}DAO.updateByPrimaryKeySelective(${classInfo.className}Convert.dto2do(record));
     }
