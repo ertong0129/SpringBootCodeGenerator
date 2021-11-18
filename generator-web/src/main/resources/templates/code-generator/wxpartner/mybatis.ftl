@@ -47,7 +47,7 @@
     </sql>
 
     <delete id="deleteByPrimaryKey" >
-        DELETE FROM ${classInfo.tableName}
+        UPDATE ${classInfo.tableName} SET is_delete = 1
         WHERE id = ${r"#{id,jdbcType=BIGINT}"}
     </delete>
 
