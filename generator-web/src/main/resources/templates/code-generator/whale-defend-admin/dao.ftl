@@ -8,6 +8,6 @@ import com.webuy.whale.defend.admin.query.${classInfo.className}Query;
 * @author ${authorName}
 * @date ${.now?string('yyyy-MM-dd')}
 */
-public interface ${classInfo.className}DAO extends MyBatisBaseDAO<${classInfo.className}PO, ${classInfo.className}Query> {
+public interface ${classInfo.className}Mapper extends MyBatisBaseMapper<${classInfo.className}PO, ${classInfo.className}Query> {
 
 }
