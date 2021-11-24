@@ -47,12 +47,12 @@
     </sql>
 
     <delete id="deleteByPrimaryKey" >
-        UPDATE ${classInfo.tableName} SET is_delete = 1
+        UPDATE ${classInfo.originTableName} SET is_delete = 1
         WHERE id = ${r"#{id,jdbcType=BIGINT}"}
     </delete>
 
     <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.webuy.whale.defend.admin.entity.${classInfo.className}PO" useGeneratedKeys="true">
-        INSERT INTO ${classInfo.tableName}
+        INSERT INTO ${classInfo.originTableName}
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
                 <#list classInfo.fieldList as fieldItem >
@@ -78,7 +78,7 @@
     </insert>
 
     <update id="updateByPrimaryKeySelective" parameterType="com.webuy.whale.defend.admin.entity.${classInfo.className}PO">
-        UPDATE ${classInfo.tableName}
+        UPDATE ${classInfo.originTableName}
         <set>
             <#list classInfo.fieldList as fieldItem >
                 <#switch fieldItem.fieldName>
@@ -99,13 +99,13 @@
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
         SELECT
         <include refid="Base_Column_List" />
-        FROM ${classInfo.tableName}
+        FROM ${classInfo.originTableName}
         WHERE id = ${r"#{id,jdbcType=BIGINT}"}
     </select>
 
     <select id="queryList" parameterType="com.webuy.whale.defend.admin.query.${classInfo.className}Query" resultMap="BaseResultMap">
         SELECT <include refid="Base_Column_List" />
-        FROM ${classInfo.tableName}
+        FROM ${classInfo.originTableName}
         <where>
             <include refid="Base_Sql"/>
         </where>
@@ -122,7 +122,7 @@
 
     <select id="queryCount" parameterType="com.webuy.whale.defend.admin.query.${classInfo.className}Query" resultType="java.lang.Integer">
         SELECT COUNT(1)
-        FROM ${classInfo.tableName}
+        FROM ${classInfo.originTableName}
         <where>
             <include refid="Base_Sql"/>
         </where>
